@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart' as latLng;
 import 'package:mapboxtest/flavor_config.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 var flavorConfigProvider;
 final showCardProvider = StateProvider<bool>((ref) => false);
@@ -139,9 +140,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           onPressed: () {/* ... */},
                         ),
                         const SizedBox(width: 8),
-                        TextButton(
-                          child: const Text('LISTEN'),
-                          onPressed: () {/* ... */},
+                        IconButton(
+                          icon: const Icon(Icons.play_circle),
+                          onPressed: () {
+                            AudioPlayer().play(
+                                AssetSource('../assets/audio/my_audio.mp3'));
+                          },
                         ),
                         const SizedBox(width: 8),
                       ],
