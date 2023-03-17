@@ -71,88 +71,87 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
                 userAgentPackageName: 'com.example.app',
               ),
-              MarkerLayer(markers: [
-                Marker(
+              MarkerLayer(
+                markers: [
+                  Marker(
                     width: 90.0,
                     height: 90.0,
                     point: latLng.LatLng(36.79682090130627, 10.167493960312028),
                     builder: (ctx) => const Icon(
-                          Icons.location_on,
-                        )),
-                Marker(
-                  width: 90.0,
-                  height: 90.0,
-                  point: latLng.LatLng(36.862704279880624, 10.330922040082351),
-                  builder: (ctx) => const Icon(
-                    Icons.location_on,
-                    color: Color.fromARGB(255, 210, 52, 17),
+                      Icons.location_on,
+                    ),
                   ),
-                ),
-                Marker(
-                  width: 90.0,
-                  height: 90.0,
-                  point: latLng.LatLng(36.7972814669719, 10.171647534328757),
-                  builder: (ctx) => const Icon(
-                    Icons.location_on,
-                    color: Color.fromARGB(255, 210, 52, 17),
+                  Marker(
+                    width: 90.0,
+                    height: 90.0,
+                    point:
+                        latLng.LatLng(36.862704279880624, 10.330922040082351),
+                    builder: (ctx) => const Icon(
+                      Icons.location_on,
+                      color: Color.fromARGB(255, 210, 52, 17),
+                    ),
                   ),
-                ),
-              ])
+                  Marker(
+                    width: 90.0,
+                    height: 90.0,
+                    point: latLng.LatLng(36.7972814669719, 10.171647534328757),
+                    builder: (ctx) => const Icon(
+                      Icons.location_on,
+                      color: Color.fromARGB(255, 210, 52, 17),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 250),
-              child: Card(
-                elevation: 5.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+          Card(
+            elevation: 5.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const ListTile(
+                  leading: Icon(Icons.album),
+                  title: Text('The Enchanted Nightingale'),
+                  subtitle:
+                      Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const ListTile(
-                      leading: Icon(Icons.album),
-                      title: Text('The Enchanted Nightingale'),
-                      subtitle:
-                          Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-                    ),
-                    Align(
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 10),
+                    width: 180,
+                    height: 150,
+                    child: const Image(
+                      image: NetworkImage('https://picsum.photos/200/300'),
                       alignment: Alignment.centerLeft,
-                      child: Container(
-                          padding: EdgeInsets.only(left: 10),
-                          width: 180,
-                          height: 150,
-                          child: const Image(
-                            image:
-                                NetworkImage('https://picsum.photos/200/300'),
-                            alignment: Alignment.centerLeft,
-                            fit: BoxFit.cover,
-                          )),
+                      fit: BoxFit.cover,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        TextButton(
-                          child: const Text('BUY TICKETS'),
-                          onPressed: () {/* ... */},
-                        ),
-                        const SizedBox(width: 8),
-                        IconButton(
-                          icon: const Icon(Icons.play_circle),
-                          onPressed: () {
-                            AudioPlayer().play(
-                                AssetSource('../assets/audio/my_audio.mp3'));
-                          },
-                        ),
-                        const SizedBox(width: 8),
-                      ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextButton(
+                      child: const Text('BUY TICKETS'),
+                      onPressed: () {/* ... */},
                     ),
+                    const SizedBox(width: 8),
+                    IconButton(
+                      icon: const Icon(Icons.play_circle),
+                      onPressed: () {
+                        AudioPlayer().play(
+                          AssetSource('../assets/audio/my_audio.mp3'),
+                        );
+                      },
+                    ),
+                    const SizedBox(width: 8),
                   ],
                 ),
-              ),
+              ],
             ),
           ),
         ],
